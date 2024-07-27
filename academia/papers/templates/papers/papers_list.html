@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACADAMIA - Papers</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            border-radius: 30px;
+            padding: 8px;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #35a6e3;
+            border-radius: 30px;
+        }
+
+        form {
+            float: right;
+            margin: 0;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #35a6e3;
+            border-radius: 30px;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 8px;
+            text-align: center;
+            margin: 0;
+        }
+
+        hr {
+            background-color: #333;
+            border: none;
+            height: 1px;
+            margin: 5px 0;
+            padding: 0px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        h2 {
+            margin: 0;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Papers</h1>
+    <hr>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'books_list' %}">Books</a>
+        <a href="{% url 'papers_list' %}">Papers</a>
+        <form method="get" action="{% url 'papers_list' %}">
+            <input type="text" name="q" placeholder="Search papers">
+            <button type="submit">Search</button>
+        </form>
+    </nav>
+   
+    <ul>
+        {% for paper in papers %}
+        <li>
+            <h2>{{ paper.title }}</h2>
+            <p>by {{ paper.author }}</p>
+            {% if paper.read_online_url %}
+                <a href="{{ paper.read_online_url }}" target="_blank">Read Online</a>
+            {% endif %}
+            {% if paper.document %}
+                <a href="{{ paper.document.url }}" target="_blank">Download Document</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}" class="back-link">Back to Home</a>
+    <footer>
+        <p>&copy; 2024 ACADAMIA</p>
+    </footer>
+</body>
+</html>

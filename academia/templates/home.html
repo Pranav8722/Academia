@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACADAMIA - Home</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            border-radius: 30px;
+            padding: 8px;
+            margin-top: 4px;
+            width: fit-content;
+            margin: auto;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #35a6e3;
+            border-radius: 30px;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 8px;
+            text-align: center;
+            margin: 0;
+        }
+
+        hr {
+            background-color: #333;
+            border: none;
+            height: 1px;
+            margin: 5px 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 10px auto;
+            padding: 14px 16px;
+            background-color: #000;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .block {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 15px;
+        }
+
+        .block a {
+            color: #35a6e3;
+            text-decoration: none;
+        }
+
+        .block a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to ACADAMIA</h1>
+    <hr>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'books_list' %}">Books</a>
+        <a href="{% url 'papers_list' %}">Papers</a>
+    </nav>
+    <div class="container">
+        <div class="block">
+            <h2>Books Section</h2>
+            <ul>
+                <li><a href="{% url 'books_list' %}">Books List</a></li>
+            </ul>
+        </div>
+        <div class="block">
+            <h2>Papers Section</h2>
+            <ul>
+                <li><a href="{% url 'papers_list' %}">Papers List</a></li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 ACADAMIA</p>
+    </footer>
+</body>
+</html>
