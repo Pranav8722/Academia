@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
      'books',
       'papers',
-     'academia'
+     'academia',
+     'study_groups',
 ]
 
 MIDDLEWARE = [
